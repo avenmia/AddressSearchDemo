@@ -29,7 +29,7 @@ const GoogleAddressSearch: React.FC = () => {
           try {
             const response = await fetch(
               `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${
-                import.meta.env.VITE_GOOGLE_MAPS_API_KEY ?? ""
+                import.meta.env.GOOGLE_MAPS_API_KEY ?? ""
               }`
             );
             const data = (await response.json()) as GoogleMapsResponseData;
@@ -45,7 +45,7 @@ const GoogleAddressSearch: React.FC = () => {
 
   return (
     <LoadScript
-      googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY!}
+      googleMapsApiKey={import.meta.env.GOOGLE_MAPS_API_KEY!}
       libraries={libraries}
     >
         <div className="flex flex-col items-center">
